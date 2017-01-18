@@ -1,19 +1,19 @@
 import cv2
 
-lastRect = []
 cascade_path = "/Users/macuser/Documents/Python/openCV/handsDetection/xml/cascade.xml"
 cascade = cv2.CascadeClassifier(cascade_path)
 color = (255, 255, 255)
 cap = cv2.VideoCapture(0)
-minsize = 100
+minsize = 120
 
 def display(frame):
     cv2.imshow("frame",frame)
 
 while True:
+    lastRect = []
     ret,frame = cap.read()
     image_gray = cv2.cvtColor(frame, cv2.cv.CV_BGR2GRAY)
-    rect = cascade.detectMultiScale(image_gray, scaleFactor=1.1, minNeighbors=1, minSize=(minsize,minsize))
+    rect = cascade.detectMultiScale(image_gray, scaleFactor=1.1, minNeighbors=3, minSize=(minsize,minsize))
 
     for colorRect in rect:
         cx = colorRect[0] + (colorRect[2] / 2)
