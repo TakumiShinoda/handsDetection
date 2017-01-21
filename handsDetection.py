@@ -1,10 +1,10 @@
 import cv2
 
-cascade_path = "/Users/macuser/Documents/Python/openCV/handsDetection/xml/cascade.xml"
+cascade_path = "/Users/macuser/Documents/Python/openCV/xml/aGest.xml"
 cascade = cv2.CascadeClassifier(cascade_path)
 color = (255, 255, 255)
 cap = cv2.VideoCapture(0)
-minsize = 120
+minsize = 80
 
 def display(frame):
     cv2.imshow("frame",frame)
